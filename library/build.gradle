@@ -22,7 +22,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.novoda:bintray-release:0.2.10'
+        classpath 'com.novoda:bintray-release:0.8.1'
     }
 }
 
@@ -34,12 +34,12 @@ def libVersion = '1.0.1'
 
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.2'
 
     defaultConfig {
-        minSdkVersion 4
-        targetSdkVersion 22
+        minSdkVersion 14
+        targetSdkVersion 28
         versionCode libVersionCode
         versionName libVersion
     }
@@ -50,7 +50,7 @@ publish {
      * Properties for BinTray upload
      */
     Properties properties = new Properties()
-    File bintrayPropertiesFile = project.file('bintray.properties');
+    File bintrayPropertiesFile = project.file('bintray.properties')
     if (bintrayPropertiesFile.exists()) {
         properties.load(bintrayPropertiesFile.newDataInputStream())
     }
@@ -64,7 +64,7 @@ publish {
     artifactId = 'discrete-seekbar'
     licences = "['Apache-2.0']"
     publishVersion = libVersion
-    description = 'DiscreteSeekbar is my poor attempt to develop an android implementation of the Discrete Slider component from the Google Material Design Guidelines'
+    desc = 'DiscreteSeekbar is my poor attempt to develop an android implementation of the Discrete Slider component from the Google Material Design Guidelines'
     website = 'https://github.com/AnderWeb/discreteSeekBar'
     issueTracker = 'https://github.com/AnderWeb/discreteSeekBar/issues'
     repository = 'https://github.com/AnderWeb/discreteSeekBar.git'
@@ -73,5 +73,5 @@ publish {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:22.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
